@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge 1</title>
+    <title>Challenge 1-3</title>
 </head>
 
 <body>
@@ -13,9 +13,20 @@
         <h1>Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
         </h1>
     </article>
+    <article>
+        <h1>Write a JavaScript program which accepts a number as input and inserts dashes (-) between each two even numbers.
+        </h1>
+    </article>
+    <article>
+        <h1>Write a JavaScript program that accepts an array input from a user and finds the most frequent item in the array.
+            Sample array : const arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+            Sample Output : a ( 5 times )
+        </h1>
+    </article>
+    
 
     <script>
-
+        // part 1
         prompt("What is the multiples of 3 and 5 under 1000");
 
         var sum = 0;
@@ -27,6 +38,49 @@
         console.log(sum);
 
             alert("The sum of the multiples of 3 & 5 less than 1000 is 33165");
+
+
+
+
+
+            // Part 2
+            // Write a JavaScript program which accepts a number as input and inserts dashes (-) between each two even numbers.
+        
+        var numberString = prompt("Enter a number");
+        var result = [numberString[0]]
+        for(var i = 1; i < numberString.length; i++){
+            if( (numberString[i-1] % 2 === 0) && numberString[i] % 2 === 0){
+                result.push('-', numberString[i])
+            }
+            else{
+                result.push(numberString[i])
+            }
+        }
+        alert(result.join(''));
+
+
+
+
+        // part 3
+        prompt('element that occurs the most and how many times it occured')
+const arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+let mf = 1; // default most frequent number
+let m = 0;  // counter
+let item; //represents the most frequent element
+
+for(let i = 0; i < arr1.length; i++){    // current element
+    for(let j = i; j < arr1.length ; j++){ // loop through other elements to compare with the current element
+        if(arr1[i] === arr1[j])
+        m++;
+        if(mf < m){
+            mf = m;
+            item = arr1[i];
+        }
+    }
+    m = 0;   // made counter 0 for next element
+}
+
+alert(item + " ( " + mf + " times ) ");
     </script>
 </body>
 
